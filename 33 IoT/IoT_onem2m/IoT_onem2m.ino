@@ -125,7 +125,7 @@ void setup() {
     WiFi.begin(ssid, password);
     while (WiFi.status() != WL_CONNECTED) {
         Serial.println("Connecting to WiFi...");
-        delay(5000);  // Retry every 10 seconds
+        delay(500);  // Retry every 500 milliseconds
     }
     Serial.println("Connected to WiFi!");
 
@@ -138,6 +138,6 @@ void loop() {
     readSensorData(sensorData);
     // Post data to OneM2M
     post_data(sensorData);
-    Serial.println("Waiting for 1 hour before repeating...");
-    delay(1000);  // Wait for 1 hour before repeating
+    Serial.println("Waiting for 1 minute before repeating...");
+    delay(1000);  // Wait for 1 minute before repeating
 }
