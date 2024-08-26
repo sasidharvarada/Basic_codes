@@ -89,7 +89,11 @@ void post_data(const SensorData& data) {
             http.sendHeader("X-M2M-Origin", OM2M_ORGIN);
             http.sendHeader("Content-Type", "application/json;ty=4");
 
-            String req_data = "{\"m2m:cin\": {\"con\": \"" + dataString + "\", \"rn\": \"cin_" + String(millis()) + "\"}}";
+            // String req_data = "{\"m2m:cin\": {\"con\": \"" + dataString + "\", \"rn\": \"cin_" + String(millis()) + "\"}}";
+              String req_data = String() + "{\"m2m:cin\": {"
+                    + "\"con\": \"" + dataString + "\","
+                    + "\"cnf\": \"text\""
+                    + "}}";
             http.sendHeader("Content-Length", req_data.length());
             http.beginBody();
             http.print(req_data);
@@ -110,6 +114,8 @@ void post_data(const SensorData& data) {
             Serial.println("All attempts to post data failed. Resetting...");
             NVIC_SystemReset();  // Restart the Arduino
         }
+        // Close the connection to free up sockets
+        http.stop();
     }
 }
 
