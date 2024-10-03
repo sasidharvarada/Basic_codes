@@ -22,11 +22,11 @@ void loop() {
       data[i] = sds011Serial.read();
     }
 
-    // Validate the data packet (start and end byte)
-    if (data[0] == 0xAA && data[9] == 0xAB) {
-      int pm25 = (data[2] + (data[3] << 8)) / 10.0;  // PM2.5
-      int pm10 = (data[4] + (data[5] << 8)) / 10.0;  // PM10
-
+    // Check for start characters and valid packet
+  if (data[0] == 0xAA && data[1] == 0xC0 && data[9] == 0xAB) {
+      // Extract PM2.5 and PM10 values
+      int pm25 = (data[2] | (data[3] << 8)) / 10.0;  // PM2.5
+      int pm10 = (data[4] | (data[5] << 8)) / 10.0;  // PM10
       // Print the values to the Serial Monitor
       Serial.print("PM2.5: ");
       Serial.print(pm25);
