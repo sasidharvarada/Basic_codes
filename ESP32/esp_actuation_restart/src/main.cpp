@@ -33,7 +33,7 @@ const char* password = "e5W-eMai@3!20hOct";
 #define CSE_IP      "dev-onem2m.iiit.ac.in"
 #define CSE_PORT    443
 #define HTTPS       false
-#define OM2M_ORGIN  "Tue_20_12_22:Tue_20_12_22"
+#define OM2M_ORGIN  "pass:pass"
 #define OM2M_MN     "/~/in-cse/in-name/"
 #define OM2M_AE     "AE-DM"
 #define OM2M_DATA_CONT  "DM-KH98-60/Data"
