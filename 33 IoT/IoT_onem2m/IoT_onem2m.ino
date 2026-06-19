@@ -17,7 +17,7 @@ const int tdssensorPin = 15;  // TDS sensor pin (analog)
 // OneM2M connection information
 const char* CSE_IP = "dev-onem2m.iiit.ac.in";  // Server IP
 const int CSE_PORT = 443;  // HTTP port
-const char* OM2M_ORGIN = "Tue_20_12_22:Tue_20_12_22";
+const char* OM2M_ORGIN = "pass:pass";
 const char* OM2M_MN = "/~/in-cse/in-name/";  // OneM2M main node
 const char* OM2M_AE = "AE-WM/WM-WD";  // Application Entity
 const char* OM2M_DATA_CONT = "WM-WD-VN00-00/Data";  // Data container
